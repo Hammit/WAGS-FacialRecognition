@@ -1,0 +1,7 @@
+To use the compiled cv2 library in our ~/local dir, you need to adjust the
+PYTHONPATH environment variable to include this library's directory.
+
+Assuming BASH, add this to the .profile
+
+export PYTHONPATH=~/local/lib/python2.7/dist-packages/
+

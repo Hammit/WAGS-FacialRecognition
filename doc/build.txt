@@ -1,0 +1,41 @@
+Instructions for Ubuntu (>= 14.04) based distributions
+
+1. First, install dependencies
+
+sudo apt-get install build-essential
+sudo apt-get install cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev
+sudo apt-get install python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev
+
+
+2. Next, download OpenCV and it's Contrib module
+
+https://github.com/Itseez/opencv/archive/3.0.0.tar.gz
+https://github.com/Itseez/opencv_contrib/archive/3.0.0.tar.gz
+
+
+3. Unpack
+
+tar -xvzf opencv-3.0.0.tar.gz
+tar -xvzf opencv_contrib-3.0.0.tar.gz
+
+
+4. Generate Makefiles
+
+mkdir ~/local
+cd opencv-3.0.0
+mkdir release
+cd release
+cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=$HOME/local -D BUILD_EXAMPLES=ON -D BUILD_opencv_apps=ON -D BUILD_opencv_python2=ON -D OPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules ../
+
+
+5. Make and Install
+
+make -j6
+make install
+
+
+Troubleshooting
+
+1. If you need to regenerate the Makefiles, don't forget to delete CMakeCache.txt
+2. Use CMake GUI to see available options without having to trawl CMakeLists.txt
+
