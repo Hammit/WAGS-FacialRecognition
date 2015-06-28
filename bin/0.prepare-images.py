@@ -4,9 +4,6 @@ import argparse
 import os
 import shutil
 
-ROOT_DIR = '/home/byron/Pictures/WAGS - Cheops/Faces'
-
-
 class FileCopier:
     DESTINATION_DIR = '/tmp/WAGS/Faces'
 
